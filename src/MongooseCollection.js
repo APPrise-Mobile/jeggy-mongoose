@@ -63,7 +63,7 @@ export class MongooseCollection extends Collection {
       transformObj.transform = transformFunc
     }
     if (_.isString(populateField)) {
-      return mongoQuery.populate(populateField, populateProjection).sort(sortString).stream(transformObj)
+      return mongoQuery.populate(populateField, populateProjection).sort(sortString).cursor(transformObj)
     }
     return mongoQuery.sort(sortString).stream(transformObj)
   }
